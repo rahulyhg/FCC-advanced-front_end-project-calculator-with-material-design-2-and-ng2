@@ -34,10 +34,10 @@ var AppComponent = (function () {
     };
     AppComponent.prototype.handleSquares = function () {
         // TODO: this is broken, fix it. It doesn't add values correctly.
-        //let number = this.processMath(this.values);
-        //console.log(Math.pow(number, 2));
-        //this.values.push('');
-        //this.values.push(Math.pow(number, 2));
+        // let number = this.processMath(this.values);
+        // console.log(Math.pow(number, 2));
+        // this.values.push('');
+        // this.values.push(Math.pow(number, 2));
     };
     AppComponent.prototype.processMath = function (numArray) {
         var total = numArray.join('');

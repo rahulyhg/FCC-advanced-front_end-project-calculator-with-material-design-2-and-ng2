@@ -57,14 +57,15 @@
     (click)="handleClick('button-nine')">
       9
     </button>
-    <button
-      id="button-plus"
-      md-raised-button
-      color="accent"
-      value="+"
-      (click)="handleClick('button-plus')">
-        +
-    </button>
+    
+    <button 
+     id="button-divide"
+     md-raised-button
+     color="accent"
+     value="/"
+     (click)="handleClick('button-divide')">
+      &#247;
+   </button>
     <br />
     <button
       id="button-squared"
@@ -97,15 +98,24 @@
       (click)="handleClick('button-six')">
       6
     </button>
-    <button 
-      id="button-subtract"
+    
+    <button
+     id="button-multiply" 
+     md-raised-button
+     color="accent"
+     value="*"
+     (click)="handleClick('button-multiply')">
+      &#x0002A;
+   </button>
+    <br />
+    <button
+      id="button-radical"
       md-raised-button
       color="accent"
-      value='-'
-      (click)="handleClick('button-subtract')">
-      -
+      value="sqrt"
+      (click)="handleClick('button-radical')">
+      &#8730;	
     </button>
-    <br />
     <button 
       id="button-one"
       md-raised-button
@@ -130,15 +140,23 @@
      (click)="handleClick('button-three')">
       3
    </button>
+   <button 
+      id="button-subtract"
+      md-raised-button
+      color="accent"
+      value='-'
+      (click)="handleClick('button-subtract')">
+      &#x02013;
+    </button>
+   <br />
    <button
-     id="button-multiply" 
+     id="button-percent"
      md-raised-button
      color="accent"
-     value="*"
-     (click)="handleClick('button-multiply')">
-      *
+     value="percent btn"
+     (click)="handleClick('button-percent')">
+     &#x00025;
    </button>
-   <br />
    <button
      id="button-zero" 
      md-raised-button
@@ -156,20 +174,20 @@
       .
    </button>
    <button
-     id="button-enter" 
+     id="button-equal" 
      md-raised-button
      color="accent"
-     value="enter"
+     value="equal"
      (click)='processMath(this.values)'>
-      Enter
+      &#x0003D;
    </button>
-   <button 
-     id="button-divide"
-     md-raised-button
-     color="accent"
-     value="/"
-     (click)="handleClick('button-divide')">
-      /
-   </button>
+   <button
+      id="button-plus"
+      md-raised-button
+      color="accent"
+      value="+"
+      (click)="handleClick('button-plus')">
+        +
+    </button>
   </div>
 </md-card>

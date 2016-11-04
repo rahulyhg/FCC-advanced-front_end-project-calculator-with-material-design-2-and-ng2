@@ -34,10 +34,10 @@ export class AppComponent implements OnChanges {
 
   handleSquares(): void {
     // TODO: this is broken, fix it. It doesn't add values correctly.
-    //let number = this.processMath(this.values);
-    //console.log(Math.pow(number, 2));
-     //this.values.push('');
-     //this.values.push(Math.pow(number, 2));
+    // let number = this.processMath(this.values);
+    // console.log(Math.pow(number, 2));
+     // this.values.push('');
+     // this.values.push(Math.pow(number, 2));
   }
 
   processMath(numArray: Array<number>): number {
