@@ -7,8 +7,32 @@
       (click)="clearProcess()">
       clear
     </button>
+    <button
+      id="button-left-paren"
+      color="accent"
+      md-raised-button
+      value="("
+      (click)="handleClick('button-left-paren')">
+      (
+    </button>
+    <button
+      id="button-right-paren"
+      color="accent"
+      md-raised-button
+      value=")"
+      (click)="handleClick('button-right-paren')">
+      )
+    </button>
   </div>
   <div class="nums">
+    <button
+      id="button-pi"
+      color="accent"
+      md-raised-button
+      [value]="getPi()"
+      (click)="handleClick('button-pi')">
+      &#960;
+    </button>
     <button
       id="button-seven"
       color="primary"
@@ -36,12 +60,19 @@
     <button
       id="button-plus"
       md-raised-button
-      color="primary"
+      color="accent"
       value="+"
       (click)="handleClick('button-plus')">
         +
     </button>
     <br />
+    <button
+      id="button-squared"
+      color="accent"
+      md-raised-button
+      (click)="handleSquares()">
+      x<sup style="font-size: 9px">2</sup>
+    </button>
     <button
       id="button-four" 
       md-raised-button
@@ -69,7 +100,7 @@
     <button 
       id="button-subtract"
       md-raised-button
-      color="primary"
+      color="accent"
       value='-'
       (click)="handleClick('button-subtract')">
       -
@@ -102,7 +133,7 @@
    <button
      id="button-multiply" 
      md-raised-button
-     color="primary"
+     color="accent"
      value="*"
      (click)="handleClick('button-multiply')">
       *
@@ -119,7 +150,7 @@
    <button 
      id="button-decimal"
      md-raised-button
-     color="primary"
+     color="accent"
      value="."
      (click)="handleClick('button-decimal')">
       .
@@ -135,7 +166,7 @@
    <button 
      id="button-divide"
      md-raised-button
-     color="primary"
+     color="accent"
      value="/"
      (click)="handleClick('button-divide')">
       /

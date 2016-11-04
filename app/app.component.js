@@ -15,20 +15,9 @@ var AppComponent = (function () {
         this.elRef = elRef;
         this.values = [];
     }
-    AppComponent.prototype.handleClick = function (id) {
-        var target = $(this.elRef.nativeElement).find("#" + id);
-        console.log(target.val());
-        this.values.push(target.val());
-    };
-    AppComponent.prototype.processMath = function (numArray) {
-        var total = numArray.join('');
-        console.log(total);
-        console.log('sum is: ', eval(total), 'typeof: ', typeof eval(total));
-    };
     AppComponent.prototype.clearProcess = function () {
         var userChoice;
         userChoice = confirm('are you sure you want to clear the arithmetic?');
-        // userChoice ? this.values = [] : console.log('denied reset per user');
         if (userChoice) {
             this.values = [];
             console.log('values cleared');
@@ -37,6 +26,30 @@ var AppComponent = (function () {
             console.log('clear function denied by user');
             return;
         }
+    };
+    AppComponent.prototype.handleClick = function (id) {
+        var target = $(this.elRef.nativeElement).find("#" + id);
+        console.log('value is: ', target.val());
+        this.values.push(target.val());
+    };
+    AppComponent.prototype.handleSquares = function () {
+        // TODO: this is broken, fix it. It doesn't add values correctly.
+        //let number = this.processMath(this.values);
+        //console.log(Math.pow(number, 2));
+        //this.values.push('');
+        //this.values.push(Math.pow(number, 2));
+    };
+    AppComponent.prototype.processMath = function (numArray) {
+        var total = numArray.join('');
+        console.log('total is currently: ', total);
+        console.log('answer is: ', eval(total));
+        return eval(total);
+    };
+    AppComponent.prototype.getPi = function () {
+        return Math.PI;
+    };
+    AppComponent.prototype.ngOnChanges = function () {
+        console.log('a change has occured');
     };
     AppComponent = __decorate([
         core_1.Component({
