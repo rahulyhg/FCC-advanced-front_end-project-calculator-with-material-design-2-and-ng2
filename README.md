@@ -3,7 +3,7 @@
 ### part of Advanced Front End Projects
 
 #### Simple calculator that can do addition, subtraction, multiplication and
-division.
+#### division.
 
 #### Can also get the % of one entry.
 
