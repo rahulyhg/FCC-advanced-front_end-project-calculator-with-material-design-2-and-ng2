@@ -1,11 +1,11 @@
 const express = require('express');
 const app = express();
 
-
+app.set('port', (process.env.PORT || 5000));
 
 app
 .use(express.static(__dirname + '/'))
 .get('/', (req, res) => {
-  res.send('index');
+  res.render('index');
 })
-.listen(80);
+.listen(app.get('port'));
