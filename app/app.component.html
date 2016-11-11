@@ -1,44 +1,49 @@
 <md-card>
+  <div
+  class="output">
+  </div>
   <div class="functions">
     <button
       id="button-clear"
-      color='accent'
+      color="accent"
       md-raised-button
       (click)="clearProcess()">
-      clear
+        AC
     </button>
     <button
-      id="button-left-paren"
-      color="accent"
+      id="button-clear-single-digit"
+      color='accent'
       md-raised-button
-      value="("
-      (click)="handleClick('button-left-paren')">
-      (
+      (click)="clearSingle()">
+      CE
     </button>
     <button
-      id="button-right-paren"
-      color="accent"
+      id="button-divide"
       md-raised-button
-      value=")"
-      (click)="handleClick('button-right-paren')">
-      )
+      color="accent"
+      value="/"
+      (click)="handleClick('button-divide')"
+      (click)="addHtml('&#247;')">
+      &#247;
+    </button>
+    <button
+      id="button-multiply"
+      md-raised-button
+      color="accent"
+      value="*"
+      (click)="handleClick('button-multiply')"
+      (click)="addHtml('&#x0002A;')">
+      &#x0002A;
     </button>
   </div>
-  <div class="nums">
-    <button
-      id="button-pi"
-      color="accent"
-      md-raised-button
-      [value]="getPi()"
-      (click)="handleClick('button-pi')">
-      &#960;
-    </button>
+
     <button
       id="button-seven"
       color="primary"
       md-raised-button
       value="7"
-      (click)="handleClick('button-seven')">
+      (click)="handleClick('button-seven')"
+      (click)="addHtml('7')">
       7
     </button>
     <button 
@@ -46,7 +51,8 @@
     md-raised-button
     color="primary"
     value="8"
-    (click)="handleClick('button-eight')">
+    (click)="handleClick('button-eight')"
+    (click)="addHtml('8')">
       8
     </button>
     <button 
@@ -54,32 +60,27 @@
     md-raised-button
     color="primary"
     value="9"
-    (click)="handleClick('button-nine')">
+    (click)="handleClick('button-nine')"
+    (click)="addHtml('9')">
       9
     </button>
-    
-    <button 
-     id="button-divide"
-     md-raised-button
-     color="accent"
-     value="/"
-     (click)="handleClick('button-divide')">
-      &#247;
-   </button>
-    <br />
     <button
-      id="button-squared"
-      color="accent"
+      id="button-subtract"
       md-raised-button
-      (click)="handleSquares()">
-      x<sup style="font-size: 9px">2</sup>
+      color="accent"
+      value='-'
+      (click)="handleClick('button-subtract')"
+      (click)="addHtml('&#x02013;')">
+        &#x02013;
     </button>
+    <br />
     <button
       id="button-four" 
       md-raised-button
       color="primary"
       value="4"
-      (click)="handleClick('button-four')">
+      (click)="handleClick('button-four')"
+      (click)="addHtml('4')">
       4
     </button>
     <button
@@ -87,41 +88,36 @@
       md-raised-button
       color="primary"
       value="5"
-    (click)="handleClick('button-five')">
+    (click)="handleClick('button-five')"
+    (click)="addHtml('5')">
       5
     </button>
-    <button 
+    <button
       id='button-six'
       md-raised-button
       color="primary"
       value="6"
-      (click)="handleClick('button-six')">
+      (click)="handleClick('button-six')"
+      (click)="addHtml('6')">
       6
     </button>
-    
     <button
-     id="button-multiply" 
-     md-raised-button
-     color="accent"
-     value="*"
-     (click)="handleClick('button-multiply')">
-      &#x0002A;
-   </button>
-    <br />
-    <button
-      id="button-radical"
+      id="button-plus"
       md-raised-button
       color="accent"
-      value="sqrt"
-      (click)="handleClick('button-radical')">
-      &#8730;	
+      value="+"
+      (click)="handleClick('button-plus')"
+      (click)="addHtml('&#x0002B;')">
+        &#x0002B;
     </button>
+    <br />
     <button 
       id="button-one"
       md-raised-button
       color="primary"
       value="1"
-      (click)="handleClick('button-one')">
+      (click)="handleClick('button-one')"
+      (click)="addHtml('1')">
       1
    </button>
    <button 
@@ -129,7 +125,8 @@
     md-raised-button
     color="primary"
     value="2"
-    (click)="handleClick('button-two')">
+    (click)="handleClick('button-two')"
+    (click)="addHtml('2')">
       2
    </button>
    <button
@@ -137,32 +134,27 @@
      md-raised-button
      color="primary"
      value="3"
-     (click)="handleClick('button-three')">
+     (click)="handleClick('button-three')"
+     (click)="addHtml('3')">
       3
    </button>
-   <button 
-      id="button-subtract"
-      md-raised-button
-      color="accent"
-      value='-'
-      (click)="handleClick('button-subtract')">
-      &#x02013;
-    </button>
-   <br />
    <button
      id="button-percent"
      md-raised-button
      color="accent"
-     value="percent btn"
-     (click)="handleClick('button-percent')">
-     &#x00025;
+     value="%"
+     (click)="addHtml('%')"
+     (click)="convertPercent()">
+       %
    </button>
+   <br />
    <button
      id="button-zero" 
      md-raised-button
      color="primary"
      value="0"
-     (click)="handleClick('button-zero')">
+     (click)="handleClick('button-zero')"
+     (click)="addHtml('0')">
       0
    </button>
    <button 
@@ -170,7 +162,8 @@
      md-raised-button
      color="accent"
      value="."
-     (click)="handleClick('button-decimal')">
+     (click)="handleClick('button-decimal')"
+     (click)="addHtml('.')">
       .
    </button>
    <button
@@ -181,13 +174,4 @@
      (click)='processMath(this.values)'>
       &#x0003D;
    </button>
-   <button
-      id="button-plus"
-      md-raised-button
-      color="accent"
-      value="+"
-      (click)="handleClick('button-plus')">
-        +
-    </button>
-  </div>
 </md-card>

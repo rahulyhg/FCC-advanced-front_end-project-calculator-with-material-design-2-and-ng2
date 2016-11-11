@@ -1,5 +1,5 @@
-import { Component, ElementRef, OnChanges } from '@angular/core';
-import * as $ from 'jquery';
+import {Component, ElementRef} from "@angular/core";
+import * as $ from "jquery";
 
 @Component({
   moduleId: module.id,
@@ -8,22 +8,17 @@ import * as $ from 'jquery';
   styleUrls: [ 'app.component.css' ],
 })
 
-export class AppComponent implements OnChanges {
+export class AppComponent {
   values: Array<number> = [];
+
 
   constructor (private elRef: ElementRef) { }
 
   clearProcess(): void {
-    let userChoice: boolean;
-    userChoice = confirm('are you sure you want to clear the arithmetic?');
-    if (userChoice) {
-      this.values = [];
-      console.log('values cleared');
-    } else {
-      console.log('clear function denied by user');
-      return;
-    }
-
+    let target = $(this.elRef.nativeElement)
+        .find('.output');
+    target.html('');
+    this.values = [];
   }
 
   handleClick(id: string): void {
@@ -32,27 +27,46 @@ export class AppComponent implements OnChanges {
     this.values.push(target.val());
   }
 
-  handleSquares(): void {
-    // TODO: this is broken, fix it. It doesn't add values correctly.
-    // let number = this.processMath(this.values);
-    // console.log(Math.pow(number, 2));
-     // this.values.push('');
-     // this.values.push(Math.pow(number, 2));
-  }
-
   processMath(numArray: Array<number>): number {
+    let target = $(this.elRef.nativeElement)
+        .find('.output');
     let total = numArray.join('');
-    console.log('total is currently: ', total);
-    console.log('answer is: ', eval(total));
-    return eval(total);
+    // let result = eval(total);
+
+     let result = eval(total);
+     if (result === Infinity) {
+       alert('you divided by zero!');
+       alert('clear the screen and try again');
+       target.html(`Infinity`);
+     } else {
+         target.html(eval(result));
+         this.values = [Number(result)];
+         return eval(result);
+       }
   }
 
-  getPi(): number {
+     getPi(): number {
     return Math.PI;
   }
 
-  ngOnChanges(): void {
-    console.log('a change has occured');
+  addHtml(param: any): void {
+    let target = $(this.elRef.nativeElement)
+        .find('.output');
+    target.append(param + ' ');
   }
 
+  convertPercent(): void {
+    let target = $(this.elRef.nativeElement)
+        .find('.output');
+    let num = Number(this.values.join(''));
+    target.html(`${eval(num / 100)}`);
+
+  }
+
+  clearSingle(): void {
+    let target = $(this.elRef.nativeElement)
+        .find('.output');
+    this.values.pop();
+    target.html(`${this.values.join('')}`);
+  }
 }

@@ -16,40 +16,52 @@ var AppComponent = (function () {
         this.values = [];
     }
     AppComponent.prototype.clearProcess = function () {
-        var userChoice;
-        userChoice = confirm('are you sure you want to clear the arithmetic?');
-        if (userChoice) {
-            this.values = [];
-            console.log('values cleared');
-        }
-        else {
-            console.log('clear function denied by user');
-            return;
-        }
+        var target = $(this.elRef.nativeElement)
+            .find('.output');
+        target.html('');
+        this.values = [];
     };
     AppComponent.prototype.handleClick = function (id) {
         var target = $(this.elRef.nativeElement).find("#" + id);
         console.log('value is: ', target.val());
         this.values.push(target.val());
     };
-    AppComponent.prototype.handleSquares = function () {
-        // TODO: this is broken, fix it. It doesn't add values correctly.
-        // let number = this.processMath(this.values);
-        // console.log(Math.pow(number, 2));
-        // this.values.push('');
-        // this.values.push(Math.pow(number, 2));
-    };
     AppComponent.prototype.processMath = function (numArray) {
+        var target = $(this.elRef.nativeElement)
+            .find('.output');
         var total = numArray.join('');
-        console.log('total is currently: ', total);
-        console.log('answer is: ', eval(total));
-        return eval(total);
+        // let result = eval(total);
+        var result = eval(total);
+        if (result === Infinity) {
+            alert('you divided by zero!');
+            alert('clear the screen and try again');
+            target.html("Infinity");
+        }
+        else {
+            target.html(eval(result));
+            this.values = [Number(result)];
+            return eval(result);
+        }
     };
     AppComponent.prototype.getPi = function () {
         return Math.PI;
     };
-    AppComponent.prototype.ngOnChanges = function () {
-        console.log('a change has occured');
+    AppComponent.prototype.addHtml = function (param) {
+        var target = $(this.elRef.nativeElement)
+            .find('.output');
+        target.append(param + ' ');
+    };
+    AppComponent.prototype.convertPercent = function () {
+        var target = $(this.elRef.nativeElement)
+            .find('.output');
+        var num = Number(this.values.join(''));
+        target.html("" + eval(num / 100));
+    };
+    AppComponent.prototype.clearSingle = function () {
+        var target = $(this.elRef.nativeElement)
+            .find('.output');
+        this.values.pop();
+        target.html("" + this.values.join(''));
     };
     AppComponent = __decorate([
         core_1.Component({

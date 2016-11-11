@@ -1,7 +1,35 @@
+body {
+  position: relative;
+}
 button {
-  margin: .2%;
+  margin: .7%;
 }
 
 md-card {
+  position: relative;
+  left: 35%;
+  width: 28%;
+  margin: 5% 0;
+  background-color: #fff;
 }
+
+.output {
+  position: relative;
+  left: 0.8%;
+  height: 6vh;
+  width: 93.5%;
+  margin: 1% 0 5% 0;
+  padding: 1% 1%;
+  text-align: right;
+  border: 1px black solid;
+  background-color: #fff;
+  font-size: 2.2em;
+
+}
+
+#button-zero {
+  width: 46.9%;
+}
+
+
 
