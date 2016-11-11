@@ -8,8 +8,8 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-var core_1 = require('@angular/core');
-var $ = require('jquery');
+var core_1 = require("@angular/core");
+var $ = require("jquery");
 var AppComponent = (function () {
     function AppComponent(elRef) {
         this.elRef = elRef;
@@ -49,13 +49,13 @@ var AppComponent = (function () {
     AppComponent.prototype.addHtml = function (param) {
         var target = $(this.elRef.nativeElement)
             .find('.output');
-        target.append(param + ' ');
+        target.append(param);
     };
     AppComponent.prototype.convertPercent = function () {
         var target = $(this.elRef.nativeElement)
             .find('.output');
         var num = Number(this.values.join(''));
-        target.html("" + eval(num / 100));
+        target.html(String(eval(num / 100)));
     };
     AppComponent.prototype.clearSingle = function () {
         var target = $(this.elRef.nativeElement)

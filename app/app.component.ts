@@ -52,14 +52,14 @@ export class AppComponent {
   addHtml(param: any): void {
     let target = $(this.elRef.nativeElement)
         .find('.output');
-    target.append(param + ' ');
+    target.append(param);
   }
 
   convertPercent(): void {
     let target = $(this.elRef.nativeElement)
         .find('.output');
     let num = Number(this.values.join(''));
-    target.html(`${eval(num / 100)}`);
+    target.html(String(eval(num / 100)));
 
   }
 
